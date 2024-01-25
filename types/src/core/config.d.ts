@@ -27,5 +27,6 @@ export interface Config {
     ignoreNullOrigin?: boolean;
     nacl?: nacl;
     timelineParams?: any;
+    queryParams?: string[];
 }
 export declare function getConfig(opts: Options, pusher: any): Config;

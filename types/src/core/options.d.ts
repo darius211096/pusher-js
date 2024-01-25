@@ -30,5 +30,6 @@ export interface Options {
     wsPath?: string;
     wsPort?: number;
     wssPort?: number;
+    queryParams?: string[];
 }
 export declare function validateOptions(options: any): void;

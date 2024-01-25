@@ -42,6 +42,9 @@ export interface Options {
   wsPath?: string;
   wsPort?: number;
   wssPort?: number;
+
+  //custom query params
+  queryParams?: string[];
 }
 
 export function validateOptions(options) {

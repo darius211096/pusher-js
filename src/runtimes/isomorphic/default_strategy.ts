@@ -49,7 +49,8 @@ var getDefaultStrategy = function(
   var ws_options: StrategyOptions = Object.assign({}, baseOptions, {
     hostNonTLS: config.wsHost + ':' + config.wsPort,
     hostTLS: config.wsHost + ':' + config.wssPort,
-    httpPath: config.wsPath
+    httpPath: config.wsPath,
+    queryParams: config.queryParams
   });
   var wss_options: StrategyOptions = Collections.extend({}, ws_options, {
     useTLS: true

@@ -25,7 +25,7 @@ function getGenericPath(key: string, queryString?: string): string {
 
 export var ws: URLScheme = {
   getInitial: function(key: string, params: URLSchemeParams): string {
-    var path = (params.httpPath || '') + getGenericPath(key, 'flash=false');
+    var path = (params.httpPath || '') + getGenericPath(key, 'flash=false&' + params.queryParams?.join("&"));
     return getGenericURL('ws', params, path);
   }
 };

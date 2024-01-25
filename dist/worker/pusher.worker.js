@@ -916,7 +916,8 @@ function getGenericPath(key, queryString) {
 }
 var ws = {
     getInitial: function (key, params) {
-        var path = (params.httpPath || '') + getGenericPath(key, 'flash=false');
+        var _a;
+        var path = (params.httpPath || '') + getGenericPath(key, 'flash=false&' + ((_a = params.queryParams) === null || _a === void 0 ? void 0 : _a.join("&")));
         return getGenericURL('ws', params, path);
     }
 };
@@ -2802,7 +2803,8 @@ var getDefaultStrategy = function (config, baseOptions, defineTransport) {
     var ws_options = Object.assign({}, baseOptions, {
         hostNonTLS: config.wsHost + ':' + config.wsPort,
         hostTLS: config.wsHost + ':' + config.wssPort,
-        httpPath: config.wsPath
+        httpPath: config.wsPath,
+        queryParams: config.queryParams
     });
     var wss_options = extend({}, ws_options, {
         useTLS: true
@@ -3738,7 +3740,8 @@ function getConfig(opts, pusher) {
         useTLS: shouldUseTLS(opts),
         wsHost: getWebsocketHost(opts),
         userAuthenticator: buildUserAuthenticator(opts),
-        channelAuthorizer: buildChannelAuthorizer(opts, pusher)
+        channelAuthorizer: buildChannelAuthorizer(opts, pusher),
+        queryParams: opts.queryParams
     };
     if ('disabledTransports' in opts)
         config.disabledTransports = opts.disabledTransports;
